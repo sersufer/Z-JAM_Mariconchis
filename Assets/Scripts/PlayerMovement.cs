@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float velocity = 50f;
     private float rotationSpeed = 80;
     bool canRotate = true;
+    bool canTakeDamage = true;
 
     // Start is called before the first frame update
     void Start()
@@ -21,14 +22,21 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canRotate)
         {
 
             _rb.velocity = Vector2.up * velocity;
 
         }
 
-        if(_rb.velocity.y >= 0 && canRotate)
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+
+            StartCoroutine("Invulnerability");
+
+        }
+
+        if (_rb.velocity.y > 0 && canRotate)
         {
 
             transform.eulerAngles = new Vector3(0, 0, 20);
@@ -39,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if (_rb.velocity.y < 0 && canRotate)
+        if (_rb.velocity.y <= 0 && canRotate)
         {
            
             transform.eulerAngles = new Vector3(0, 0, transform.rotation.eulerAngles.z - (Time.deltaTime * rotationSpeed));
@@ -52,6 +60,45 @@ public class PlayerMovement : MonoBehaviour
             {
                 _am.Play("PC_Fall");
             }
+
+        }
+    }
+
+    IEnumerator Invulnerability()
+    {
+        canRotate = false;
+        _rb.gravityScale = 0;
+        canTakeDamage = false;
+        _am.Play("PC_Fall");
+        _rb.velocity = Vector2.zero;
+
+        StartCoroutine("Fade");
+
+        yield return new WaitForSeconds(2);
+        
+        Color tmp = GetComponent<SpriteRenderer>().color;
+        tmp.a = 1f;
+        GetComponent<SpriteRenderer>().color = tmp;
+        canRotate = true;
+        _rb.gravityScale = 1;
+        canTakeDamage = true;
+
+    }
+    IEnumerator Fade()
+    {
+        for (float ft = 0; ft < 10; ft++)
+        {
+            if(ft%2 == 0) {
+                Color tmp = GetComponent<SpriteRenderer>().color;
+                tmp.a = 0f;
+                GetComponent<SpriteRenderer>().color = tmp;
+            } else
+            {
+                Color tmp = GetComponent<SpriteRenderer>().color;
+                tmp.a = 1f;
+                GetComponent<SpriteRenderer>().color = tmp;
+            }
+            yield return new WaitForSeconds(.2f);
 
         }
     }
