@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Sprites.meta
 <<<<<<< HEAD
 guid: 418e4f08e64b49b43ba94e178e11dacf
 =======
 guid: a1223f6d2c97ea046b5a517e7e706147
 >>>>>>> 41cee0d499b621e139fea2fa7b1646b2f20f6e3b
+=======
+guid: 845dacd4303775d499920fc6e85c0de5
+>>>>>>> c353db2d83994878c87407ea23b9dc48581bc804:Assets/Animations.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
