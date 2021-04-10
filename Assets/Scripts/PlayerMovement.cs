@@ -1,32 +1,79 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
 
     Rigidbody2D _rb;
     Animator _am;
+    AudioSource _as;
     public float velocity = 50f;
     private float rotationSpeed = 80;
     bool canRotate = true;
     bool canTakeDamage = true;
+
+    EventSystem m_EventSystem;
+    GraphicRaycaster m_Raycaster;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _am = GetComponent<Animator>();
+        _as = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canRotate)
+        //Scree.height
+
+        if ( Input.GetKeyDown(KeyCode.Space) && canRotate && Time.timeScale == 1)
         {
-
             _rb.velocity = Vector2.up * velocity;
+            if (!_as.isPlaying) { 
+                _as.Play();
+            }
 
+        }
+        else if (Input.GetMouseButtonDown(0) && canRotate && Time.timeScale == 1)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            if (mousePos.x < (Screen.width * 0.91f) || mousePos.x > (Screen.width * 0.965f) || mousePos.y < (Screen.height * 0.85f) || mousePos.y > (Screen.height * 0.95f))
+            {
+
+                _rb.velocity = Vector2.up * velocity;
+                if (!_as.isPlaying)
+                {
+                    _as.Play();
+                }
+            }
+
+
+        }
+
+        if (Input.touchCount > 0 && canRotate)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began && Time.timeScale == 1)
+            {
+                Vector3 mousePos = touch.position;
+                if (mousePos.x < (Screen.width * 0.91f) || mousePos.x > (Screen.width * 0.965f) || mousePos.y < (Screen.height * 0.85f) || mousePos.y > (Screen.height * 0.95f))
+                {
+
+                    _rb.velocity = Vector2.up * velocity;
+                    if (!_as.isPlaying)
+                    {
+                        _as.Play();
+                    }
+                }
+
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.D))
