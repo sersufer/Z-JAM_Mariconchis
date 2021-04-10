@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class ProceduralBuildingGenerationSystem : MonoBehaviour
 {
-    public bool IsIconicBuilding;
-    public int IconicBuildingCounter;
+
     #region Properties
-    // Building GameObjects
-    //private GameObject BuildingType1;
-    //private GameObject BuildingType2;
-    //private GameObject BuildingType3;
+    
     private GameObject TestCube;
 
     // Object variables
@@ -25,10 +21,13 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     private GameObject iconicBuilding1;
     private GameObject iconicBuilding2;
     private GameObject iconicBuilding3;
+    public bool IsIconicBuilding;
+    public int IconicBuildingCounter;
     private GameObject finalLevelBuilding;
     private GameObject trashBin;
     private GameObject streetLight;
     private GameObject cat;
+    private Transform playerTransform;
     private float nextFloorObstacleSpawnTime;
 
     public bool CanSpawnNextBuilding;
@@ -56,50 +55,61 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
         gameVelocity = 30;
         IsIconicBuilding = false;
         //  Test cube
-        TestCube = GameObject.Find("TestCube");
+        //TestCube = GameObject.Find("TestCube");
+
+        playerTransform = GameObject.Find("Player").transform;
 
         //  Camera related variables
         gameCamera = Camera.main;
         ScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         mainCameraCollider = gameObject.GetComponent<Collider2D>();
-        ////BeginPositionY = mainCameraCollider.offset.y; //gameCamera.pixelHeight; VIEJO
-        ////ScreenBorderPositionX = mainCameraCollider.bounds.max.x; //ScreenBorderPositionX = gameCamera.pixelWidth; VIEJO
+        
         ScreenBorderPositionX = mainCameraCollider.bounds.size.x / 2;
         EndPositionX = -ScreenBounds.x;
 
         //  Floor related variables
         floorGameObject = GameObject.FindGameObjectWithTag("Floor");
-        BeginPositionY = -ScreenBounds.y + 0.6f; //+ floorGameObject.GetComponent<Collider2D>().bounds.size.y;
+        BeginPositionY = -ScreenBounds.y + 0.6f; 
 
         CanSpawnNextBuilding = false;
-        nextFloorObstacleSpawnTime = Time.time + Random.Range(200, 450);
+        nextFloorObstacleSpawnTime = Time.time + Random.Range(1, 3);
         SpawnBuilding();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (Time.time > nextFloorObstacleSpawnTime)
         {
             int randomItemProp = (int) Random.Range(1, 3);
             switch (randomItemProp)
             {
                 case 1:
-                    var auxTrashBin = GameObject.Instantiate(trashBin, new Vector3(ScreenBounds.x, BeginPositionY, -5), Quaternion.identity);
+                    trashBin = Resources.Load<GameObject>("Prefabs/Obstacles/TrashBin");
+                    
+                    //var auxTrashBin = 
+                    var auxTrashBin = GameObject.Instantiate(trashBin, new Vector3(ScreenBounds.x, BeginPositionY, playerTransform.position.z), Quaternion.identity);
                     auxTrashBin.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                     break;
 
                 case 2:
-                    var auxStreetLight = GameObject.Instantiate(streetLight, new Vector3(ScreenBounds.x, BeginPositionY, -5), Quaternion.identity);
+                    streetLight = Resources.Load<GameObject>("Prefabs/Obstacles/StreetLight");
+                    
+                    //var auxStreetLight = 
+                    var auxStreetLight = GameObject.Instantiate(streetLight, new Vector3(ScreenBounds.x, BeginPositionY, playerTransform.position.z), Quaternion.identity);
                     auxStreetLight.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                     break;
 
                 case 3:
-                    var auxCat = GameObject.Instantiate(cat, new Vector3(ScreenBounds.x, BeginPositionY, -5), Quaternion.identity);
+                    cat = Resources.Load<GameObject>("Prefabs/Obstacles/Cat");
+                    //var auxCat = 
+                    var auxCat = GameObject.Instantiate(cat, new Vector3(ScreenBounds.x, BeginPositionY, playerTransform.position.z), Quaternion.identity);
                     auxCat.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                     break;
             }
-            
+            nextFloorObstacleSpawnTime = Time.time + Random.Range(6, 10);
+
         }
 
         if (CanSpawnNextBuilding)
@@ -112,9 +122,9 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
 
     void PreLoadResources()
     {
-        trashBin = Resources.Load<GameObject>("Prefabs/Obstacles/TrashBin");
-        streetLight = Resources.Load<GameObject>("Prefabs/Obstacles/StreetLight");
-        cat = Resources.Load<GameObject>("Prefabs/Obstacles/Cat");
+        //trashBin = Resources.Load<GameObject>("Prefabs/Obstacles/TrashBin");
+        //streetLight = Resources.Load<GameObject>("Prefabs/Obstacles/StreetLight");
+        //cat = Resources.Load<GameObject>("Prefabs/Obstacles/Cat");
     }
 
     void SpawnBuilding()
@@ -147,7 +157,6 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                     LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                 }
 
-                //building1.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                 break;
 
             case 2:
@@ -224,6 +233,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                     LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                 }
                 break;
+
             case 6:
                 building6 = Resources.Load<GameObject>("Prefabs/Buildings/Building6");
 
@@ -242,25 +252,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 }
                 break;
 
-            case 9:
-
-                //GameObject.Instantiate(TestCube, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
-                //GameObject.Instantiate(TestCube, new Vector3(ScreenBounds.x, BeginPositionY + TestCube.GetComponent<Collider2D>().bounds.size.y / 2, 0), Quaternion.identity);
-                //GameObject.Instantiate(TestCube, new Vector3(ScreenBounds.x, floorGameObject.GetComponent<Collider2D>().offset.y + (TestCube.GetComponent<Collider2D>().bounds.size.y / 2), 0), Quaternion.identity);
-
-                ////GameObject.Instantiate(TestCube, new Vector3(ScreenBounds.x, floorGameObject.transform.lossyScale.y + TestCube.GetComponent<Collider2D>().bounds.size.y / 2, 0), Quaternion.identity);
-                ////Debug.Log(floorGameObject.transform.lossyScale.y);
-                ////Debug.Log(GameObject.Find("Square").transform.localPosition.y);
-
-
-                //var prueba = floorGameObject.GetComponent<Collider2D>().bounds.center.y;
-                var prueba = floorGameObject.GetComponent<Collider2D>().bounds.size.y / 2 - floorGameObject.GetComponent<Collider2D>().bounds.center.y;
-                GameObject.Instantiate(TestCube, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
-                
-                break;
-
-            default:
-                break;
+            
         }
 
         CanSpawnNextBuilding = false;
