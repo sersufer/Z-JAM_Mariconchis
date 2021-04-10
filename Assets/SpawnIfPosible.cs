@@ -6,6 +6,7 @@ public class SpawnIfPosible : MonoBehaviour
 {
     private GameObject buildingGameObject;
     private ProceduralBuildingGenerationSystem proceduralBuildingGenerationSystem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +30,10 @@ public class SpawnIfPosible : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Buildings"))
         {
             proceduralBuildingGenerationSystem.CanSpawnNextBuilding = true;
+            //proceduralBuildingGenerationSystem.nextXAvailableSpawnPosition = proceduralBuildingGenerationSystem.ScreenBorderPositionX + collision.GetComponent<Collider2D>().bounds.size.x / 2;
+            //proceduralBuildingGenerationSystem.nextXAvailableSpawnPosition = proceduralBuildingGenerationSystem.ScreenBounds.x + collision.gameObject.GetComponent<Collider2D>().bounds.size.x;
+            proceduralBuildingGenerationSystem.nextXAvailableSpawnPosition = proceduralBuildingGenerationSystem.ScreenBounds.x + collision.gameObject.GetComponent<Collider2D>().bounds.size.x * 2;
+
         }
     }
     
