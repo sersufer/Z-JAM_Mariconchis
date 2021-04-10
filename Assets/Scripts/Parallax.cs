@@ -24,12 +24,14 @@ public class Parallax : MonoBehaviour
 
     float parrallaxFactor => Mathf.Abs(distanceFromSubject / clipingPlane);
 
+    Vector2 dirtyVector;
+
     void Start()
     {
         newBackgroundHasBeenAlreadyInstantiated = false;
 
         cam = Camera.main;
-        screenRightBorderX = GameObject.Find("Main Camera").GetComponent<ProceduralBuildingGenerationSystem>().ScreenBounds.x;
+        screenRightBorderX = GameObject.Find("Main Camera").GetComponent<Collider2D>().bounds.max.x;
         screenBottomBorderY = -GameObject.Find("Main Camera").GetComponent<ProceduralBuildingGenerationSystem>().ScreenBounds.y;
         spriteRightBorderX = GetComponent<SpriteRenderer>().bounds.max.x;
         spriteLeftBorderX = GetComponent<SpriteRenderer>().bounds.min.x;
@@ -39,36 +41,52 @@ public class Parallax : MonoBehaviour
         xMovement = startPosition.x;
         startZ = transform.position.z;
 
-        GameObject.Find("TestCube").transform.position = new Vector3(spriteRightBorderX, transform.position.y, transform.position.z - 1);
+        dirtyVector = new Vector2(spriteRightBorderX,screenBottomBorderY);
+        //  Test Cube
+        //GameObject.Find("TestCube").transform.position = new Vector3(GameObject.Find("Main Camera").GetComponent<Collider2D>().bounds.max.x, transform.position.y, transform.position.z - 1);
     }
-
+    
     void Update()
     {
         xMovement -= 0.05f;
+        //spriteRightBorderX -= xMovement;
+        spriteRightBorderX -= xMovement;
+        //dirtyVector.x = dirtyVector.x - xMovement;
 
         Vector2 newPos = startPosition + travel; //* parrallaxFactor;
         transform.position = new Vector3(newPos.x, newPos.y, startZ);
 
         if (GetComponent<SpriteRenderer>().bounds.max.x < spriteLeftBorderX)
         {
-            Destroy(this.gameObject);
+            
+            //var duplicateGameObject = GameObject.Instantiate(this.gameObject, new Vector3(screenRightBorderX, screenBottomBorderY, -16), Quaternion.identity); //GameObject.Find("Main Camera").GetComponent<Collider2D>().bounds.max.x;
+            //Destroy(this.gameObject);
             //this.gameObject = duplicateGameObject;
         }
         if (!newBackgroundHasBeenAlreadyInstantiated)
         {
-            if (GetComponent<SpriteRenderer>().bounds.max.x <= screenRightBorderX) //spriteRightBorderX <= screenRightBorderX
+            //dirtyVector.x
+            if (spriteRightBorderX <= screenRightBorderX) //spriteRightBorderX <= screenRightBorderX //GetComponent<SpriteRenderer>().bounds.max.x <= screenRightBorderX       //GameObject.Find("Main Camera").GetComponent<Collider2D>().bounds.max.x    //spriteRightBorderX  <= GameObject.Find("Main Camera").GetComponent<Collider2D>().bounds.max.x
             {
+                Debug.Log("he entrado");
                 //transform.position = startPosition;
-                ///var duplicateGameObject = GameObject.Instantiate(this.gameObject, new Vector3(screenRightBorderX, screenBottomBorderY, -16), Quaternion.identity);
+                //var duplicateGameObject = GameObject.Instantiate(this.gameObject, new Vector3(screenRightBorderX, screenBottomBorderY, -16), Quaternion.identity);
 
                 ///duplicateGameObject.AddComponent<Parallax>();
 
                 newBackgroundHasBeenAlreadyInstantiated = true;
             }
         }
-
-
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("MainCamera"))
+        {
+            var duplicateGameObject = GameObject.Instantiate(this.gameObject, new Vector3(screenRightBorderX, screenBottomBorderY, -16), Quaternion.identity);
+        }
+    }
+
     /*
      void Start()
     {
