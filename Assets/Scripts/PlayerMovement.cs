@@ -40,6 +40,21 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+        else if (Input.GetMouseButtonDown(0) && canRotate && Time.timeScale == 1)
+        {
+            Vector3 mousePos = Input.mousePosition;
+            if (mousePos.x < (Screen.width * 0.91f) || mousePos.x > (Screen.width * 0.965f) || mousePos.y < (Screen.height * 0.85f) || mousePos.y > (Screen.height * 0.95f))
+            {
+
+                _rb.velocity = Vector2.up * velocity;
+                if (!_as.isPlaying)
+                {
+                    _as.Play();
+                }
+            }
+
+
+        }
 
         if (Input.touchCount > 0 && canRotate)
         {
@@ -61,21 +76,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && canRotate && Time.timeScale == 1)
-        {
-            Vector3 mousePos = Input.mousePosition;
-            if (mousePos.x < (Screen.width * 0.91f) || mousePos.x > (Screen.width * 0.965f) || mousePos.y < (Screen.height * 0.85f) || mousePos.y > (Screen.height * 0.95f))
-            {
-
-                _rb.velocity = Vector2.up * velocity;
-                if (!_as.isPlaying)
-                {
-                    _as.Play();
-                }
-            }
-
-
-        }
         if (Input.GetKeyDown(KeyCode.D))
         {
 
