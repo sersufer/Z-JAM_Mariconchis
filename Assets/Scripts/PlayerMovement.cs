@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     bool canRotate = true;
     bool canTakeDamage = true;
 
+    public AudioClip[] clips;
+
     EventSystem m_EventSystem;
     GraphicRaycaster m_Raycaster;
 
@@ -35,7 +37,8 @@ public class PlayerMovement : MonoBehaviour
         if ( Input.GetKeyDown(KeyCode.Space) && canRotate && Time.timeScale == 1)
         {
             _rb.velocity = Vector2.up * velocity;
-            if (!_as.isPlaying) { 
+            if (!_as.isPlaying) {
+                _as.clip = clips[Random.Range(0, 11)];
                 _as.Play();
             }
 
@@ -49,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
                 _rb.velocity = Vector2.up * velocity;
                 if (!_as.isPlaying)
                 {
+                    _as.clip = clips[Random.Range(0, 11)];
                     _as.Play();
                 }
             }
@@ -69,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
                     _rb.velocity = Vector2.up * velocity;
                     if (!_as.isPlaying)
                     {
+                        _as.clip = clips[Random.Range(0, 11)];
                         _as.Play();
                     }
                 }
