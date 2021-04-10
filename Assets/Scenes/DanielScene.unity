@@ -530,6 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e59edb4c07e174e9b18caf9d4fa6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gamePhase: 0
   LastSpawnedObject: {fileID: 0}
   IsIconicBuilding: 0
   IconicBuildingCounter: 0
@@ -814,6 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 7.5
+  clips: []
 --- !u!61 &1631696380
 BoxCollider2D:
   m_ObjectHideFlags: 0
