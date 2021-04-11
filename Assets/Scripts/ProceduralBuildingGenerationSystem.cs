@@ -59,6 +59,8 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     public float BeginPositionY;
     public GameObject floorGameObject;
 
+    private float timeLeft;
+
     #endregion
 
     // Start is called before the first frame update
@@ -88,6 +90,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
         CanSpawnNextBuilding = false;
         nextFloorObstacleSpawnTime = Time.time + Random.Range(1, 3);
         SpawnBuilding();
+        timeLeft = Time.time + 60;
     }
 
     // Update is called once per frame
@@ -135,7 +138,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
         //{
         //    gamePhase = GamePhase.Second;
         //}
-        if (Time.time >= 60)
+        if (Time.time >= timeLeft)
         {
             gamePhase = GamePhase.Final;
 
