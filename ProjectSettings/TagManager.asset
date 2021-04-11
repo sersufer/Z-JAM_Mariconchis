@@ -11,6 +11,7 @@ TagManager:
   - BackgroundSky
   - BackGroundClouds
   - BackgroundBuildings
+  - Obstacle
   layers:
   - Default
   - TransparentFX

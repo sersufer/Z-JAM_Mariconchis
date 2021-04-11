@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     public Camera cam;
-
+    public Collider2D collider2D;
     [Header("UI")]
     public Text winText;
     public Text loseText;
@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         _am = GetComponent<Animator>();
         _as = GetComponent<AudioSource>();
         gameTime = Time.time + 60;
+        collider2D = gameObject.GetComponent<Collider2D>();
 
 
     }
@@ -208,7 +209,15 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
-     
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            isAlive = false;
+        }
+    }
+
 
     IEnumerator Invulnerability()
     {
