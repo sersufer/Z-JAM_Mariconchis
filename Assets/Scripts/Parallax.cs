@@ -10,6 +10,8 @@ public class Parallax : MonoBehaviour
     private float screenBottomBorderY;
     private float spriteLeftBorderX;
     private bool newBackgroundHasBeenAlreadyInstantiated;
+    string ownerName;
+    float movementXDependingOnBackgroundType;
     public Transform subject;
     Vector2 startPosition;
     float startZ;
@@ -28,6 +30,19 @@ public class Parallax : MonoBehaviour
 
     void Start()
     {
+        movementXDependingOnBackgroundType = 0.005f;
+        if (gameObject.CompareTag("BackgroundSky"))
+        {
+            movementXDependingOnBackgroundType = 0.0005f;
+        }
+        else if (gameObject.CompareTag("BackgroundClouds"))
+        {
+            movementXDependingOnBackgroundType = 0.0009f;
+        }
+        else if (gameObject.CompareTag("BackgroundBuildings"))
+        {
+            movementXDependingOnBackgroundType = 0.005f;
+        }
         newBackgroundHasBeenAlreadyInstantiated = false;
 
         cam = Camera.main;
@@ -48,7 +63,7 @@ public class Parallax : MonoBehaviour
     
     void Update()
     {
-        xMovement -= 0.005f;
+        xMovement -= movementXDependingOnBackgroundType;
         //spriteRightBorderX -= xMovement;
         spriteRightBorderX -= xMovement;
         //dirtyVector.x = dirtyVector.x - xMovement;

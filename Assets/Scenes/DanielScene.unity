@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 29065004}
   m_Layer: 9
   m_Name: BackGround_Buildings (9)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 270093352}
   m_Layer: 9
   m_Name: BackGround_Buildings (11)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,7 +467,7 @@ GameObject:
   - component: {fileID: 283513554}
   m_Layer: 0
   m_Name: Clouds (10)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 396313959}
   m_Layer: 9
   m_Name: BackGround_Buildings (3)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 524068827}
   m_Layer: 9
   m_Name: BackGround_Buildings
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1007,7 +1007,7 @@ GameObject:
   - component: {fileID: 615082586}
   m_Layer: 0
   m_Name: Clouds (6)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 725524370}
   m_Layer: 0
   m_Name: Clouds (1)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1201,7 +1201,7 @@ GameObject:
   - component: {fileID: 764885203}
   m_Layer: 0
   m_Name: Sky (12)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 789306190}
   m_Layer: 0
   m_Name: Sky (5)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1395,7 +1395,7 @@ GameObject:
   - component: {fileID: 816054401}
   m_Layer: 0
   m_Name: Sky (2)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1492,7 +1492,7 @@ GameObject:
   - component: {fileID: 829872805}
   m_Layer: 0
   m_Name: Sky (10)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1589,7 +1589,7 @@ GameObject:
   - component: {fileID: 833284286}
   m_Layer: 0
   m_Name: Sky (1)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1687,7 +1687,7 @@ GameObject:
   - component: {fileID: 836350549}
   m_Layer: 9
   m_Name: BackGround_Buildings (12)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1797,7 +1797,7 @@ GameObject:
   - component: {fileID: 1035388866}
   m_Layer: 0
   m_Name: Sky (6)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1895,7 +1895,7 @@ GameObject:
   - component: {fileID: 1040742526}
   m_Layer: 9
   m_Name: BackGround_Buildings (4)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2005,7 +2005,7 @@ GameObject:
   - component: {fileID: 1079722309}
   m_Layer: 0
   m_Name: Sky (7)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2102,7 +2102,7 @@ GameObject:
   - component: {fileID: 1154882041}
   m_Layer: 0
   m_Name: Clouds (7)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2336,7 +2336,7 @@ GameObject:
   - component: {fileID: 1197560959}
   m_Layer: 0
   m_Name: Clouds (12)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2433,7 +2433,7 @@ GameObject:
   - component: {fileID: 1218375864}
   m_Layer: 0
   m_Name: Sky (8)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2530,7 +2530,7 @@ GameObject:
   - component: {fileID: 1266727752}
   m_Layer: 0
   m_Name: Sky (3)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2628,7 +2628,7 @@ GameObject:
   - component: {fileID: 1317307811}
   m_Layer: 9
   m_Name: BackGround_Buildings (2)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2738,7 +2738,7 @@ GameObject:
   - component: {fileID: 1471358983}
   m_Layer: 0
   m_Name: Clouds (11)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2835,7 +2835,7 @@ GameObject:
   - component: {fileID: 1482761791}
   m_Layer: 0
   m_Name: Clouds (3)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2933,7 +2933,7 @@ GameObject:
   - component: {fileID: 1484096674}
   m_Layer: 9
   m_Name: BackGround_Buildings (1)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3044,7 +3044,7 @@ GameObject:
   - component: {fileID: 1519910436}
   m_Layer: 9
   m_Name: BackGround_Buildings (10)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3264,7 +3264,7 @@ GameObject:
   - component: {fileID: 1573308531}
   m_Layer: 9
   m_Name: BackGround_Buildings (6)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3374,7 +3374,7 @@ GameObject:
   - component: {fileID: 1603735915}
   m_Layer: 0
   m_Name: Sky (9)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3471,7 +3471,7 @@ GameObject:
   - component: {fileID: 1629584415}
   m_Layer: 0
   m_Name: Sky (11)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3831,7 +3831,7 @@ GameObject:
   - component: {fileID: 1648393610}
   m_Layer: 0
   m_Name: Sky
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3928,7 +3928,7 @@ GameObject:
   - component: {fileID: 1649235123}
   m_Layer: 0
   m_Name: Clouds (5)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4025,7 +4025,7 @@ GameObject:
   - component: {fileID: 1653602354}
   m_Layer: 0
   m_Name: Clouds (8)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4122,7 +4122,7 @@ GameObject:
   - component: {fileID: 1703394959}
   m_Layer: 0
   m_Name: Sky (4)
-  m_TagString: Untagged
+  m_TagString: BackgroundSky
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4328,7 +4328,7 @@ GameObject:
   - component: {fileID: 1828419352}
   m_Layer: 0
   m_Name: Clouds (4)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4425,7 +4425,7 @@ GameObject:
   - component: {fileID: 1829792281}
   m_Layer: 0
   m_Name: Clouds (2)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4605,7 +4605,7 @@ GameObject:
   - component: {fileID: 1970570780}
   m_Layer: 9
   m_Name: BackGround_Buildings (7)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4715,7 +4715,7 @@ GameObject:
   - component: {fileID: 2018730789}
   m_Layer: 0
   m_Name: Clouds (9)
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4812,7 +4812,7 @@ GameObject:
   - component: {fileID: 2038866242}
   m_Layer: 0
   m_Name: Clouds
-  m_TagString: Untagged
+  m_TagString: BackGroundClouds
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4910,7 +4910,7 @@ GameObject:
   - component: {fileID: 2078527389}
   m_Layer: 9
   m_Name: BackGround_Buildings (8)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5021,7 +5021,7 @@ GameObject:
   - component: {fileID: 2134984727}
   m_Layer: 9
   m_Name: BackGround_Buildings (5)
-  m_TagString: Untagged
+  m_TagString: BackgroundBuildings
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
