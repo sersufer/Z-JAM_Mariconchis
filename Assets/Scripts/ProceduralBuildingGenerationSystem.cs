@@ -41,7 +41,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     private GameObject cat;
     private Transform playerTransform;
     private float nextFloorObstacleSpawnTime;
-
+    private int hasEnteredHereOnce = 0;
     public bool CanSpawnNextBuilding;
 
     [Header("Camera related properties")]
@@ -134,7 +134,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
         //{
         //    gamePhase = GamePhase.Second;
         //}
-        if (Time.time >= 8)
+        if (Time.time >= 60)
         {
             gamePhase = GamePhase.Final;
 
@@ -145,8 +145,14 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
 
             if (gamePhase == GamePhase.Final)
             {
-                if(finalLevelBuilding != null)
-                    StartCoroutine(GenerateEndLevelBuilding());
+                if(finalLevelBuilding == null)
+                {
+                    ++hasEnteredHereOnce;
+                    if(hasEnteredHereOnce == 1)
+                    {
+                        StartCoroutine(GenerateEndLevelBuilding());
+                    }
+                }
 
             }
             else
@@ -178,7 +184,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
 
     IEnumerator GenerateEndLevelBuilding()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(6);
         //finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/BasilicaDelPilar");
 
         //finalLevelBuilding = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
