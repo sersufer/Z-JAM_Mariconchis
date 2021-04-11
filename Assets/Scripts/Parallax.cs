@@ -35,7 +35,7 @@ public class Parallax : MonoBehaviour
         {
             movementXDependingOnBackgroundType = 0.0005f;
         }
-        else if (gameObject.CompareTag("BackgroundClouds"))
+        else if (gameObject.CompareTag("BackGroundClouds"))
         {
             movementXDependingOnBackgroundType = 0.0009f;
         }
