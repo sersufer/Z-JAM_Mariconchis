@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
             if (touch.phase == TouchPhase.Began && Time.timeScale == 1)
             {
                 Vector3 mousePos = touch.position;
-                if (mousePos.x < (Screen.width * 0.91f) || mousePos.x > (Screen.width * 0.965f) || mousePos.y < (Screen.height * 0.85f) || mousePos.y > (Screen.height * 0.95f))
+                if (mousePos.x < (Screen.width * 0.9f) || mousePos.x > (Screen.width * 0.965f) || mousePos.y < (Screen.height * 0.81f) || mousePos.y > (Screen.height * 0.95f))
                 {
 
                     _rb.velocity = Vector2.up * velocity;

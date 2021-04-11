@@ -42,11 +42,9 @@ public class StarMenuCanvasController : MonoBehaviour
 
     public void playSound()
     {
-      /*  if (!_as.isPlaying)
-        {*/
+
         _as.Play();
 
-      //  }
     }
 
 
