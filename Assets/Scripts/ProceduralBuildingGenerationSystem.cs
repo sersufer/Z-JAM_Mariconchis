@@ -155,11 +155,32 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                     if(hasEnteredHereOnce == 1)
                     {
                         StartCoroutine(GenerateEndLevelBuilding());
+                        switch (discoveredFinalBuilding)
+                        {
+                            case "BasilicaDelPilar":
+                                PlayerPrefs.SetInt("PilarVisited",1);
+                                break;
+                            case "IconicBuilding_Aljaferia":
+                                PlayerPrefs.SetInt("AljaferiaVisited", 1);
+                                break;
+                            case "IconicBuilding_ElPlata":
+                                PlayerPrefs.SetInt("PlataVisited", 1);
+                                break;
+                            case "IconicBuilding_MercadoCentral":
+                                PlayerPrefs.SetInt("MercadoVisited", 1);
+                                break;
+                            case "IconicBuilding_Seo":
+                                PlayerPrefs.SetInt("SeoVisited", 1);
+                                break;
+                            case "IconicBuilding_TeatroPrincipal":
+                                PlayerPrefs.SetInt("TeatroVisited", 1);
+                                break;
+                        }
                     }else if (hasEnteredHereOnce >= 1)
                     {
                         if(finalLevelBuilding != null)
                         {
-                            if(finalLevelBuilding.transform.position.x == gameCamera.GetComponent<BoxCollider2D>().bounds.center.x)
+                            if(finalLevelBuilding.transform.position.x <= gameCamera.GetComponent<BoxCollider2D>().bounds.center.x)
                             {
                                 finalLevelBuilding.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                             }
@@ -274,7 +295,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     void SpawnBuilding()
     {
         int typeOfBuilding = 1;
-        int randomPosibilityToSpawnEnemies = (int)Random.Range(1, 2);
+        int randomPosibilityToSpawnEnemies = (int)Random.Range(1, 3);
 
         switch (gamePhase)
         {
@@ -336,6 +357,9 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                             LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                         }
                         break;
+
+                    default:
+                        break;
                 }
 
                 break;
@@ -378,6 +402,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                             LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                         }
                         break;
+                        
                 }
                 
                 
