@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _am = GetComponent<Animator>();
         _as = GetComponent<AudioSource>();
-        gameTime = Time.time + 6;
+        gameTime = Time.time + 60;
 
 
     }
