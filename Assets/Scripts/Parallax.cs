@@ -83,7 +83,6 @@ public class Parallax : MonoBehaviour
             //dirtyVector.x
             if (spriteRightBorderX <= screenRightBorderX) //spriteRightBorderX <= screenRightBorderX //GetComponent<SpriteRenderer>().bounds.max.x <= screenRightBorderX       //GameObject.Find("Main Camera").GetComponent<Collider2D>().bounds.max.x    //spriteRightBorderX  <= GameObject.Find("Main Camera").GetComponent<Collider2D>().bounds.max.x
             {
-                Debug.Log("he entrado");
                 //transform.position = startPosition;
                 //var duplicateGameObject = GameObject.Instantiate(this.gameObject, new Vector3(screenRightBorderX, screenBottomBorderY, -16), Quaternion.identity);
 

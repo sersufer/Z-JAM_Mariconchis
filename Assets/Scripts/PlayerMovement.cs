@@ -212,7 +212,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        Debug.Log("OTherTag" + collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Obstacle") && !collision.gameObject.CompareTag("Untagged"))
         {
             isAlive = false;
         }
