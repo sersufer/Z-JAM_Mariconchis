@@ -48,7 +48,7 @@ public class Parallax : MonoBehaviour
     
     void Update()
     {
-        xMovement -= 0.05f;
+        xMovement -= 0.005f;
         //spriteRightBorderX -= xMovement;
         spriteRightBorderX -= xMovement;
         //dirtyVector.x = dirtyVector.x - xMovement;
@@ -83,7 +83,7 @@ public class Parallax : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("MainCamera"))
         {
-            var duplicateGameObject = GameObject.Instantiate(this.gameObject, new Vector3(screenRightBorderX, screenBottomBorderY, -16), Quaternion.identity);
+            //var duplicateGameObject = GameObject.Instantiate(this.gameObject, new Vector3(screenRightBorderX, screenBottomBorderY, -16), Quaternion.identity);
         }
     }
 

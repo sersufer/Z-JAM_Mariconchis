@@ -30,6 +30,9 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     private GameObject iconicBuilding1;
     private GameObject iconicBuilding2;
     private GameObject iconicBuilding3;
+    private GameObject iconicBuilding4;
+    private GameObject iconicBuilding5;
+    private GameObject iconicBuilding6;
     public bool IsIconicBuilding;
     public int IconicBuildingCounter;
     private GameObject finalLevelBuilding;
@@ -62,7 +65,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     {
         gamePhase = GamePhase.First;
         PreLoadResources();
-        gameVelocity = 30;
+        gameVelocity = 35;
         IsIconicBuilding = false;
         //  Test cube
         //TestCube = GameObject.Find("TestCube");
@@ -91,7 +94,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     {
 
 
-        if (Time.time > nextFloorObstacleSpawnTime)
+        if (Time.time > nextFloorObstacleSpawnTime && gamePhase != GamePhase.Final)
         {
             int randomItemProp = (int) Random.Range(1, 2);
             switch (randomItemProp)
@@ -104,43 +107,141 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                     auxStreetLight.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                     break;
 
-                case 2:
-                    cat = Resources.Load<GameObject>("Prefabs/Obstacles/Cat");
-                    //var auxCat = 
-                    var auxCat = GameObject.Instantiate(cat, new Vector3(ScreenBounds.x, BeginPositionY, playerTransform.position.z), Quaternion.identity);
-                    auxCat.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
-                    break;
+                //case 3:
+                //    cat = Resources.Load<GameObject>("Prefabs/Obstacles/Cat");
+                //    //var auxCat = 
+                //    var auxCat = GameObject.Instantiate(cat, new Vector3(ScreenBounds.x, BeginPositionY, playerTransform.position.z), Quaternion.identity);
+                //    auxCat.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                //    break;
 
-                    /*
+                case 2:
                     trashBin = Resources.Load<GameObject>("Prefabs/Obstacles/TrashBin");
                     
                     //var auxTrashBin = 
                     var auxTrashBin = GameObject.Instantiate(trashBin, new Vector3(ScreenBounds.x, BeginPositionY, playerTransform.position.z), Quaternion.identity);
                     auxTrashBin.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
-                    break;    
-                    */
+                    break;
+                    
             }
             nextFloorObstacleSpawnTime = Time.time + Random.Range(6, 10);
 
         }
-        if (Time.time >= 6)
+        //if (Time.time >= 6)
+        //{
+        //    gamePhase = GamePhase.Final;
+
+        //}else if (Time.time >= 3)
+        //{
+        //    gamePhase = GamePhase.Second;
+        //}
+        if (Time.time >= 8)
         {
             gamePhase = GamePhase.Final;
 
-        }else if (Time.time >= 3)
-        {
-            gamePhase = GamePhase.Second;
         }
-        
 
         if (CanSpawnNextBuilding)
         {
-            if(finalLevelBuilding == null)
-                SpawnBuilding();
+
+            if (gamePhase == GamePhase.Final)
+            {
+                if(finalLevelBuilding != null)
+                    StartCoroutine(GenerateEndLevelBuilding());
+
+            }
+            else
+            {
+                if (finalLevelBuilding == null)
+                    SpawnBuilding();
+            }
+
         }
+
+        //if (CanSpawnNextBuilding)
+        //{
+
+        //    if (gamePhase == GamePhase.Final)
+        //    {
+        //        StartCoroutine(GenerateEndLevelBuilding());
+
+        //    }
+        //    else
+        //    {
+        //        if (finalLevelBuilding == null)
+        //            SpawnBuilding();
+        //    }
+
+        //}
     }
 
     #region My methods
+
+    IEnumerator GenerateEndLevelBuilding()
+    {
+        yield return new WaitForSeconds(3);
+        //finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/BasilicaDelPilar");
+
+        //finalLevelBuilding = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
+        //LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+
+        
+        int randomIconicBuilding = (int)Random.Range(1, 6);
+        switch (randomIconicBuilding)
+        {
+            case 1:
+                finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_Seo");
+
+                
+                LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
+                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                
+                break;
+
+            case 2:
+                finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_Aljaferia");
+                
+                LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
+                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                
+                break;
+
+            case 3:
+                finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_TeatroPrincipal");
+
+                LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
+                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                
+                break;
+
+            case 4:
+
+                finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_ElPlata");
+
+                LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
+                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                
+                break;
+
+            case 5:
+
+                finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_MercadoCentral");
+                
+                LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
+                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                
+                break;
+
+            case 6:
+                finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/BasilicaDelPilar");
+
+                LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
+                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                
+                break;
+        }
+
+
+    }
 
     void PreLoadResources()
     {
@@ -160,11 +261,11 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 break;
 
             case GamePhase.Second:
-                typeOfBuilding = (int)Random.RandomRange(0, 7);
+                //typeOfBuilding = (int)Random.RandomRange(0, 7);
                 break;
 
             case GamePhase.Final:
-                typeOfBuilding = 8;
+                //typeOfBuilding = 8;
                 break;
         }
 
@@ -173,7 +274,6 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
         float xSpawnPosition;
         //string assetPrefabRoute;
 
-#warning TypeOfBuildingVariable forced to 1 (TESTING)
         switch (typeOfBuilding)
         {
             case 1:
@@ -290,11 +390,11 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 break;
 
             case 7:
-                int randomIconicBuilding = (int)Random.Range(1, 2);
+                int randomIconicBuilding = (int)Random.Range(1, 6);
                 switch (randomIconicBuilding)
                 {
                     case 1:
-                        iconicBuilding1 = Resources.Load<GameObject>("Prefabs/Buildings/Building7");
+                        iconicBuilding1 = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_Seo");
 
                         if (LastSpawnedObject)
                         {
@@ -312,7 +412,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                         break;
 
                     case 2:
-                        iconicBuilding2 = Resources.Load<GameObject>("Prefabs/Buildings/Building7");
+                        iconicBuilding2 = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_Aljaferia");
 
                         if (LastSpawnedObject)
                         {
@@ -328,17 +428,91 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                             LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                         }
                         break;
+
+                    case 3:
+                        iconicBuilding3 = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_TeatroPrincipal");
+
+                        if (LastSpawnedObject)
+                        {
+                            xSpawnPosition = LastSpawnedObject.transform.position.x + LastSpawnedObject.GetComponent<Collider2D>().bounds.size.x + iconicBuilding2.GetComponent<Collider2D>().bounds.size.x;
+                            LastSpawnedObject = GameObject.Instantiate(iconicBuilding3, new Vector3(xSpawnPosition, BeginPositionY, 0), Quaternion.identity);
+
+                            LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                        }
+                        else
+                        {
+                            xSpawnPosition = ScreenBounds.x;
+                            LastSpawnedObject = GameObject.Instantiate(iconicBuilding3, new Vector3(xSpawnPosition, BeginPositionY, 0), Quaternion.identity);
+                            LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                        }
+                        break;
+
+                    case 4:
+
+                        iconicBuilding4 = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_ElPlata");
+
+                        if (LastSpawnedObject)
+                        {
+                            xSpawnPosition = LastSpawnedObject.transform.position.x + LastSpawnedObject.GetComponent<Collider2D>().bounds.size.x + iconicBuilding2.GetComponent<Collider2D>().bounds.size.x;
+                            LastSpawnedObject = GameObject.Instantiate(iconicBuilding4, new Vector3(xSpawnPosition, BeginPositionY, 0), Quaternion.identity);
+
+                            LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                        }
+                        else
+                        {
+                            xSpawnPosition = ScreenBounds.x;
+                            LastSpawnedObject = GameObject.Instantiate(iconicBuilding4, new Vector3(xSpawnPosition, BeginPositionY, 0), Quaternion.identity);
+                            LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                        }
+                        break;
+
+                    case 5:
+
+                        iconicBuilding4 = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_MercadoCentral");
+
+                        if (LastSpawnedObject)
+                        {
+                            xSpawnPosition = LastSpawnedObject.transform.position.x + LastSpawnedObject.GetComponent<Collider2D>().bounds.size.x + iconicBuilding2.GetComponent<Collider2D>().bounds.size.x;
+                            LastSpawnedObject = GameObject.Instantiate(iconicBuilding4, new Vector3(xSpawnPosition, BeginPositionY, 0), Quaternion.identity);
+
+                            LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                        }
+                        else
+                        {
+                            xSpawnPosition = ScreenBounds.x;
+                            LastSpawnedObject = GameObject.Instantiate(iconicBuilding4, new Vector3(xSpawnPosition, BeginPositionY, 0), Quaternion.identity);
+                            LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                        }
+                        break;
+
+                    case 6:
+                        iconicBuilding4 = Resources.Load<GameObject>("Prefabs/Buildings/BasilicaDelPilar");
+
+                        if (LastSpawnedObject)
+                        {
+                            xSpawnPosition = LastSpawnedObject.transform.position.x + LastSpawnedObject.GetComponent<Collider2D>().bounds.size.x + iconicBuilding2.GetComponent<Collider2D>().bounds.size.x;
+                            LastSpawnedObject = GameObject.Instantiate(iconicBuilding4, new Vector3(xSpawnPosition, BeginPositionY, 0), Quaternion.identity);
+
+                            LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                        }
+                        else
+                        {
+                            xSpawnPosition = ScreenBounds.x;
+                            LastSpawnedObject = GameObject.Instantiate(iconicBuilding4, new Vector3(xSpawnPosition, BeginPositionY, 0), Quaternion.identity);
+                            LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+                        }
+                        break;
                 }
                 
                 break;
 
-            case 8:
-                finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/BasilicaDelPilar");
+            //case 8:
+            //    finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/BasilicaDelPilar");
 
-                xSpawnPosition = ScreenBounds.x;
-                LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(xSpawnPosition, BeginPositionY, 0), Quaternion.identity);
-                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
-                break;
+            //    xSpawnPosition = ScreenBounds.x;
+            //    LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(xSpawnPosition, BeginPositionY, 0), Quaternion.identity);
+            //    LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
+            //    break;
         }
 
         CanSpawnNextBuilding = false;
