@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.velocity = Vector2.up * velocity;
             if (!_as.isPlaying) {
-                _as.clip = clips[Random.Range(0, 11)];
+                _as.clip = clips[Random.Range(0, 10)];
                 _as.Play();
             }
 
@@ -46,13 +46,13 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetMouseButtonDown(0) && canRotate && Time.timeScale == 1)
         {
             Vector3 mousePos = Input.mousePosition;
-            if (mousePos.x < (Screen.width * 0.91f) || mousePos.x > (Screen.width * 0.965f) || mousePos.y < (Screen.height * 0.85f) || mousePos.y > (Screen.height * 0.95f))
+            if (mousePos.x < (Screen.width * 0.9f) || mousePos.x > (Screen.width * 0.965f) || mousePos.y < (Screen.height * 0.81f) || mousePos.y > (Screen.height * 0.95f))
             {
 
                 _rb.velocity = Vector2.up * velocity;
                 if (!_as.isPlaying)
                 {
-                    _as.clip = clips[Random.Range(0, 11)];
+                    _as.clip = clips[Random.Range(0, 10)];
                     _as.Play();
                 }
             }
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
                     _rb.velocity = Vector2.up * velocity;
                     if (!_as.isPlaying)
                     {
-                        _as.clip = clips[Random.Range(0, 11)];
+                        _as.clip = clips[Random.Range(0, 10)];
                         _as.Play();
                     }
                 }

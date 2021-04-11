@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class StarMenuCanvasController : MonoBehaviour
 {
+
+    private AudioSource _as;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _as = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -38,5 +40,14 @@ public class StarMenuCanvasController : MonoBehaviour
         //SceneManager.LoadScene("Options");
     }
 
+    public void playSound()
+    {
+      /*  if (!_as.isPlaying)
+        {*/
+        _as.Play();
 
-}
+      //  }
+    }
+
+
+    }
