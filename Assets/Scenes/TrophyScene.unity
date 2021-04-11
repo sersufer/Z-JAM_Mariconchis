@@ -861,7 +861,7 @@ RectTransform:
   m_Father: {fileID: 1679575378}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.9, y: 0.85}
+  m_AnchorMin: {x: 0.9, y: 0.835}
   m_AnchorMax: {x: 0.975, y: 0.95}
   m_AnchoredPosition: {x: 0.00024414062, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -942,8 +942,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2a9c8c51882a86f4c81daaa21573c342, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1216,7 +1216,7 @@ RectTransform:
   m_Father: {fileID: 682881177}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.9, y: 0.85}
+  m_AnchorMin: {x: 0.9, y: 0.835}
   m_AnchorMax: {x: 0.975, y: 0.95}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -1297,8 +1297,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2a9c8c51882a86f4c81daaa21573c342, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1550,7 +1550,7 @@ RectTransform:
   m_Father: {fileID: 763530327}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.9, y: 0.85}
+  m_AnchorMin: {x: 0.9, y: 0.835}
   m_AnchorMax: {x: 0.975, y: 0.95}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -1631,8 +1631,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2a9c8c51882a86f4c81daaa21573c342, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1905,7 +1905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65, y: 0.45}
   m_AnchorMax: {x: 0.85, y: 0.7}
-  m_AnchoredPosition: {x: 0.000016689, y: -0.000091553}
+  m_AnchoredPosition: {x: 0, y: -0.000091552734}
   m_SizeDelta: {x: -85.2446, y: 0.0002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &979618002
@@ -2115,10 +2115,10 @@ RectTransform:
   m_Father: {fileID: 516111111}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.9, y: 0.85}
+  m_AnchorMin: {x: 0.9, y: 0.835}
   m_AnchorMax: {x: 0.975, y: 0.95}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1.294281}
+  m_SizeDelta: {x: 0, y: -2.5886002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1074872833
 MonoBehaviour:
@@ -2196,8 +2196,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2a9c8c51882a86f4c81daaa21573c342, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3126,8 +3126,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Built in 1920 it is one of the last singing cafe in Europe. Now have your
-    poop!!!
+  m_Text: Built in 1920 it is the last singing cafe in Europe. Now have your poop!!!
 --- !u!222 &1447989073
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3250,7 +3249,7 @@ RectTransform:
   m_Father: {fileID: 1261827627}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.9, y: 0.85}
+  m_AnchorMin: {x: 0.9, y: 0.835}
   m_AnchorMax: {x: 0.975, y: 0.95}
   m_AnchoredPosition: {x: 0.00024414062, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -3331,8 +3330,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2a9c8c51882a86f4c81daaa21573c342, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4371,7 +4370,7 @@ RectTransform:
   m_Father: {fileID: 199665375}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.9, y: 0.85}
+  m_AnchorMin: {x: 0.9, y: 0.835}
   m_AnchorMax: {x: 0.975, y: 0.95}
   m_AnchoredPosition: {x: 0.00024414062, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -4452,8 +4451,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2a9c8c51882a86f4c81daaa21573c342, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4964,7 +4963,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Built from the 13th century to 1961, it is one of the most emblematic buildings
     in Zaragoza and one of the two cathedrals in the city. Characterized by having
-    X towers, four larger and X smaller. Now have your poop!!!
+    15 towers, 4 larger and 11 smaller. Now have your poop!!!
 --- !u!222 &2064933540
 CanvasRenderer:
   m_ObjectHideFlags: 0
