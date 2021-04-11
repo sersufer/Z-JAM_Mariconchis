@@ -36,6 +36,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     public bool IsIconicBuilding;
     public int IconicBuildingCounter;
     private GameObject finalLevelBuilding;
+    public string discoveredFinalBuilding;
     private GameObject trashBin;
     private GameObject streetLight;
     private GameObject cat;
@@ -254,6 +255,8 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 
                 break;
         }
+
+        discoveredFinalBuilding = finalLevelBuilding.name;
 
 
     }
