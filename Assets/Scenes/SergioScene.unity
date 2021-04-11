@@ -2011,6 +2011,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1242154363}
+  collider2D: {fileID: 0}
   winText: {fileID: 1045156147}
   loseText: {fileID: 652692734}
   space: {fileID: 415838966}
@@ -2060,7 +2061,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0455bf2f86cd6294ca616e8f7e4faedb, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4153,6 +4154,7 @@ MonoBehaviour:
   LastSpawnedObject: {fileID: 0}
   IsIconicBuilding: 0
   IconicBuildingCounter: 0
+  discoveredFinalBuilding: 
   CanSpawnNextBuilding: 0
   ScreenBounds: {x: 0, y: 0}
   ScreenBorderPositionX: 0
