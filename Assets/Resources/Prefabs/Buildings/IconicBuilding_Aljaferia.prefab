@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1717024671799241075}
   - component: {fileID: 733203494698603632}
   - component: {fileID: 3328288998487582449}
+  - component: {fileID: -2838091172516373599}
   m_Layer: 3
   m_Name: IconicBuilding_Aljaferia
   m_TagString: Untagged
@@ -100,7 +101,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 13.89, y: 9.78}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -131,3 +132,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 2
+--- !u!114 &-2838091172516373599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626705305115329987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35e507ffc653449a69a5c4fd0ae592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}

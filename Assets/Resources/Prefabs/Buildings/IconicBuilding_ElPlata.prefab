@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5329999448299835089}
   - component: {fileID: 5215508026483803811}
   - component: {fileID: 4573330927589866246}
+  - component: {fileID: -2811277119491954257}
   m_Layer: 3
   m_Name: IconicBuilding_ElPlata
   m_TagString: Untagged
@@ -131,3 +132,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 2
+--- !u!114 &-2811277119491954257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2229308629763970986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a35e507ffc653449a69a5c4fd0ae592, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}

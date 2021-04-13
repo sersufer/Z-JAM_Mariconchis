@@ -2126,7 +2126,7 @@ MonoBehaviour:
   space: {fileID: 415838966}
   exit: {fileID: 1594319081}
   gamePhase: 0
-  totalGameTime: 10
+  totalGameTime: 16
   velocity: 5
   isAlive: 1
   clips:

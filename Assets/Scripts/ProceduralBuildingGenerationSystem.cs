@@ -214,7 +214,6 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
 
                 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
-                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                 PlayerPrefs.SetInt("SeoVisited", 1);
 
                 break;
@@ -223,7 +222,6 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_Aljaferia");
                 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
-                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                 PlayerPrefs.SetInt("AljaferiaVisited", 1);
 
                 break;
@@ -232,7 +230,6 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_TeatroPrincipal");
 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
-                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                 PlayerPrefs.SetInt("TeatroVisited", 1);
 
                 break;
@@ -242,7 +239,6 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_ElPlata");
 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
-                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                 PlayerPrefs.SetInt("PlataVisited", 1);
 
                 break;
@@ -252,7 +248,6 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/IconicBuilding_MercadoCentral");
                 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
-                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                 PlayerPrefs.SetInt("MercadoVisited", 1);
 
                 break;
@@ -261,7 +256,6 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 finalLevelBuilding = Resources.Load<GameObject>("Prefabs/Buildings/BasilicaDelPilar");
 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
-                LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
                 PlayerPrefs.SetInt("PilarVisited", 1);
 
                 break;
