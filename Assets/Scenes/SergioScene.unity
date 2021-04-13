@@ -2126,6 +2126,7 @@ MonoBehaviour:
   space: {fileID: 415838966}
   exit: {fileID: 1594319081}
   gamePhase: 0
+  totalGameTime: 10
   velocity: 5
   isAlive: 1
   clips:
@@ -4272,6 +4273,7 @@ MonoBehaviour:
   nextXAvailableSpawnPosition: 0
   BeginPositionY: 0
   floorGameObject: {fileID: 0}
+  gameTime: 10
 --- !u!61 &1242154361
 BoxCollider2D:
   m_ObjectHideFlags: 0

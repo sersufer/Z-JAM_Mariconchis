@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public GamePhase gamePhase;
+    public float totalGameTime;
 
     Rigidbody2D _rb;
     Animator _am;
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isAlive = true;
     private int spaceCount = 0;
     private float gameTime;
+    private float waitIconicBuild;
 
     public AudioClip[] clips;
 
@@ -49,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _am = GetComponent<Animator>();
         _as = GetComponent<AudioSource>();
-        gameTime = Time.time + 60;
+        gameTime = Time.time + totalGameTime;
         collider2D = gameObject.GetComponent<Collider2D>();
 
 
@@ -147,6 +149,7 @@ public class PlayerMovement : MonoBehaviour
             _rb.velocity = Vector2.zero;
 
             transform.eulerAngles = new Vector3(0, 0, 0);
+
             if (cam.WorldToScreenPoint(transform.position).x < (Screen.width / 2))
             {
                 transform.position += Vector3.right * 5 * Time.deltaTime;

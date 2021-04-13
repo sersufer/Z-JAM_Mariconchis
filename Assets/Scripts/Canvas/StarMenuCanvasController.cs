@@ -10,6 +10,14 @@ public class StarMenuCanvasController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        /*
+        PlayerPrefs.SetInt("PilarVisited", 0);
+        PlayerPrefs.SetInt("MercadoVisited", 0);
+        PlayerPrefs.SetInt("PlataVisited",  0);
+        PlayerPrefs.SetInt("TeatroVisited", 0);
+        PlayerPrefs.SetInt("AljaferiaVisited", 0);
+        PlayerPrefs.SetInt("SeoVisited", 0);*/
+
         _as = GetComponent<AudioSource>();
     }
 

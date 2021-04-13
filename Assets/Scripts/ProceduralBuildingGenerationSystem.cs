@@ -13,7 +13,8 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     {
         First,
         Second,
-        Final
+        Final,
+        Final2
     }
 
     public GamePhase gamePhase;
@@ -58,6 +59,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     [Header("Floor related")]
     public float BeginPositionY;
     public GameObject floorGameObject;
+    public float gameTime;
 
     private float timeLeft;
 
@@ -68,7 +70,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
     {
         gamePhase = GamePhase.First;
         PreLoadResources();
-        gameVelocity = 70;
+        gameVelocity = 150;
         IsIconicBuilding = false;
         //  Test cube
         //TestCube = GameObject.Find("TestCube");
@@ -90,7 +92,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
         CanSpawnNextBuilding = false;
         nextFloorObstacleSpawnTime = Time.time + Random.Range(1, 3);
         SpawnBuilding();
-        timeLeft = Time.time + 60;
+        timeLeft = Time.time + gameTime;
     }
 
     // Update is called once per frame
@@ -138,7 +140,7 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
         //{
         //    gamePhase = GamePhase.Second;
         //}
-        if (Time.time >= timeLeft)
+        if (Time.time >= timeLeft && gamePhase == GamePhase.First)
         {
             gamePhase = GamePhase.Final;
 
@@ -147,51 +149,30 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
         if (CanSpawnNextBuilding)
         {
 
-            if (gamePhase == GamePhase.Final)
-            {
-                if(finalLevelBuilding == null)
+            if (gamePhase == GamePhase.Final || gamePhase == GamePhase.Final2)
+            {  
+                if(gamePhase == GamePhase.Final)
                 {
-                    ++hasEnteredHereOnce;
-                    if(hasEnteredHereOnce == 1)
+                    gamePhase = GamePhase.Final2;
+                    StartCoroutine(GenerateEndLevelBuilding());
+
+                }
+                
+                if (gamePhase == GamePhase.Final2)
+                {
+                    if(finalLevelBuilding != null)
                     {
-                        StartCoroutine(GenerateEndLevelBuilding());
-                        switch (discoveredFinalBuilding)
+                        Debug.Log("Building speed: " + finalLevelBuilding.GetComponent<Rigidbody2D>().velocity);
+                        if((Screen.width/2) < gameCamera.WorldToScreenPoint(finalLevelBuilding.transform.position).x)
                         {
-                            case "BasilicaDelPilar":
-                                PlayerPrefs.SetInt("PilarVisited",1);
-                                break;
-                            case "IconicBuilding_Aljaferia":
-                                PlayerPrefs.SetInt("AljaferiaVisited", 1);
-                                break;
-                            case "IconicBuilding_ElPlata":
-                                PlayerPrefs.SetInt("PlataVisited", 1);
-                                break;
-                            case "IconicBuilding_MercadoCentral":
-                                PlayerPrefs.SetInt("MercadoVisited", 1);
-                                break;
-                            case "IconicBuilding_Seo":
-                                PlayerPrefs.SetInt("SeoVisited", 1);
-                                break;
-                            case "IconicBuilding_TeatroPrincipal":
-                                PlayerPrefs.SetInt("TeatroVisited", 1);
-                                break;
-                        }
-                    }else if (hasEnteredHereOnce >= 1)
-                    {
-                        if(finalLevelBuilding != null)
-                        {
-                            if(finalLevelBuilding.transform.position.x <= gameCamera.GetComponent<BoxCollider2D>().bounds.center.x)
-                            {
-                                finalLevelBuilding.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                            }
+                            finalLevelBuilding.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                         }
                     }
-                }
+                }    
 
             }
             else
             {
-                if (finalLevelBuilding == null)
                     SpawnBuilding();
             }
 
@@ -234,7 +215,8 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
                 LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
-                
+                PlayerPrefs.SetInt("SeoVisited", 1);
+
                 break;
 
             case 2:
@@ -242,7 +224,8 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
                 LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
-                
+                PlayerPrefs.SetInt("AljaferiaVisited", 1);
+
                 break;
 
             case 3:
@@ -250,7 +233,8 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
                 LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
-                
+                PlayerPrefs.SetInt("TeatroVisited", 1);
+
                 break;
 
             case 4:
@@ -259,7 +243,8 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
                 LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
-                
+                PlayerPrefs.SetInt("PlataVisited", 1);
+
                 break;
 
             case 5:
@@ -268,7 +253,8 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
                 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
                 LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
-                
+                PlayerPrefs.SetInt("MercadoVisited", 1);
+
                 break;
 
             case 6:
@@ -276,13 +262,10 @@ public class ProceduralBuildingGenerationSystem : MonoBehaviour
 
                 LastSpawnedObject = GameObject.Instantiate(finalLevelBuilding, new Vector3(ScreenBounds.x, BeginPositionY, 0), Quaternion.identity);
                 LastSpawnedObject.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.left * gameVelocity);
-                
+                PlayerPrefs.SetInt("PilarVisited", 1);
+
                 break;
         }
-
-        discoveredFinalBuilding = finalLevelBuilding.name;
-
-
     }
 
     void PreLoadResources()
